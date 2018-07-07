@@ -17,12 +17,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.label.text = @"Hi!";
+
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)setTweet:(Tweet *)tweet {
+    
+    _tweet = tweet;
+    
+    NSLog(@"Set tweet called");
+    
+}
+
+- (IBAction)didPressBack:(id)sender {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
 
 /*
 #pragma mark - Navigation

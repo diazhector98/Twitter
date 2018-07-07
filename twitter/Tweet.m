@@ -14,10 +14,11 @@
     
     self = [super init];
     if (self) {
-                
+        
+        
+        NSLog(@"%@", dictionary);
+        
         self.idStr = dictionary[@"id_str"];
-        
-        
         self.text = dictionary[@"text"];
         
         self.favoriteCount = [dictionary[@"favorite_count"] intValue];
@@ -44,6 +45,7 @@
         formatter.timeStyle = NSDateFormatterNoStyle;
         // Convert Date to String
         self.createdAtString = [formatter stringFromDate:date];
+        self.creationDate = date;
     }
     return self;
     

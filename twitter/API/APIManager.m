@@ -96,6 +96,13 @@ static NSString * const consumerSecret = @"pFzCOKdwnpBt2VEOnh2ueJjbDOvSQfcbGI0NB
     }];
 }
 
+
+
+
+
+
+
+
 - (void)favorite:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion{
     
     NSString *urlString = @"1.1/favorites/create.json";
@@ -138,7 +145,9 @@ static NSString * const consumerSecret = @"pFzCOKdwnpBt2VEOnh2ueJjbDOvSQfcbGI0NB
     
     NSString *urlString = @"1.1/statuses/retweet/";
     
-    urlString = [urlString stringByAppendingString: [NSString stringWithFormat:@"%@.json", tweet.idStr]];
+    NSString *idString = [NSString stringWithFormat:@"%@.json", tweet.idStr];
+    
+    urlString = [urlString stringByAppendingString: idString];
     
     NSDictionary *parameters = @{@"id": tweet.idStr};
     

@@ -138,6 +138,7 @@
                                             <outlet property="retweetButton" destination="zkx-Of-86v" id="Sca-QF-xwM"/>
                                             <outlet property="tweetTextLabel" destination="5Cx-ja-ivC" id="8v7-SU-XGg"/>
                                             <outlet property="usernameLabel" destination="UVP-w0-F0B" id="XXm-xg-gzd"/>
+                                            <segue destination="db4-UC-RjS" kind="presentation" id="XNx-4l-Chi"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -154,7 +155,8 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Compose" id="myD-nm-VZk">
                             <connections>
-                                <segue destination="yV5-jn-ItS" kind="presentation" id="UPD-Tx-a87"/>
+                                <action selector="didTapCompose:" destination="Lbl-k5-U4i" id="gXl-Au-OSg"/>
+                                <segue destination="yV5-jn-ItS" kind="presentation" identifier="composeTweetSegue" id="UPD-Tx-a87"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -165,6 +167,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oQh-hN-GQg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1660" y="36.431784107946029"/>
+        </scene>
+        <!--Tweet Detail View Controller-->
+        <scene sceneID="m8y-6B-1ZW">
+            <objects>
+                <viewController id="JIR-FA-92J" customClass="TweetDetailViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="o4l-1a-Usy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GqT-dO-4aq">
+                                <rect key="frame" x="75" y="305" width="224" height="71"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="fmb-vt-Feq"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="VOs-J4-qdh">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="ga8-6G-GhE">
+                            <connections>
+                                <action selector="didPressBack:" destination="JIR-FA-92J" id="9kJ-hw-Z0Y"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="label" destination="GqT-dO-4aq" id="qy8-cw-uCD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bs1-EF-pyb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3543" y="37"/>
         </scene>
         <!--Compose View Controller-->
         <scene sceneID="4vk-YV-Lgg">
@@ -178,6 +214,7 @@
                                 <rect key="frame" x="16" y="61" width="343" height="225"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -239,6 +276,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wbQ-GG-AQN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="860" y="815"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0Hb-aj-0mx">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="db4-UC-RjS" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RY3-mn-8kZ">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="JIR-FA-92J" kind="relationship" relationship="rootViewController" id="Ngb-5q-SG2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uES-ic-8Gp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2574" y="36"/>
         </scene>
     </scenes>
     <resources>

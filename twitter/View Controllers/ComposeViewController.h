@@ -18,6 +18,7 @@
 @interface ComposeViewController : UIViewController
 
 @property (nonatomic, weak) id<ComposeViewControllerDelegate> delegate;
+
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 
 @end

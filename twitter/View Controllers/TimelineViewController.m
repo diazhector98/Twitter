@@ -13,6 +13,7 @@
 #import "ComposeViewController.h"
 #import "AppDelegate.h"
 #import "LoginViewController.h"
+#import "TweetDetailViewController.h"
 
 @interface TimelineViewController () <UITableViewDelegate, UITableViewDataSource, ComposeViewControllerDelegate>
 
@@ -126,6 +127,11 @@
     
 }
 
+- (IBAction)didTapCompose:(id)sender {
+    
+    
+}
+
 
 //Logout
 
@@ -150,10 +156,28 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+//
+    NSString *identifier = [NSString stringWithFormat:@"%@", segue.identifier];
     
-    ComposeViewController *composeViewController = [segue destinationViewController];
-
-    composeViewController.delegate = self;
+    if([identifier isEqualToString:@"composeTweetSegue"]) {
+        
+        ComposeViewController *composeViewController = [segue destinationViewController];
+        
+        composeViewController.delegate = self;
+        
+    } else {
+        
+        TweetCell *tweetCell = (TweetCell *) sender;
+        
+        Tweet *tweet = tweetCell.tweet;
+        
+        TweetDetailViewController *tweetViewController = [segue destinationViewController];
+        
+        tweetViewController.tweet = tweet;
+        
+        NSLog(@"%@", tweet.text);
+                
+    }
     
     
 }

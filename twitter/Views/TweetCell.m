@@ -9,6 +9,7 @@
 #import "TweetCell.h"
 #import "UIImageView+AFNetworking.h"
 #import "APIManager.h"
+#import "DateTools.h"
 
 
 @implementation TweetCell
@@ -30,6 +31,7 @@
         
     [self refreshData];
     
+    
 }
 
 -(void) refreshData {
@@ -43,6 +45,11 @@
     self.tweetTextLabel.text = self.tweet.text;
     
     self.usernameLabel.text = [NSString stringWithFormat:@"@%@", user.screenName];
+    
+//    Date
+    
+    self.dateLabel.text = self.tweet.creationDate.shortTimeAgoSinceNow;
+
 
 //    Set image
     
@@ -57,9 +64,9 @@
 //    Set favorite and retweet buttons
     
     if(self.tweet.favorited) {
-        
+                
         UIImage *image = [UIImage imageNamed:@"favor-icon-red"];
-        
+                
         [self.likeButton setImage:image forState:UIControlStateNormal];
         
     } else {
